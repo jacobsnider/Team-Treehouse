@@ -3,8 +3,8 @@ namespace Treehouse.MediaLibrary
 {
     public class Movie
     {
-        public string Title;
-        public string Director;
+        public readonly string Title;
+        public readonly string Director;
 
         public Movie(string title, string director)
         {

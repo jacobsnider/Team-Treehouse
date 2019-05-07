@@ -6,7 +6,7 @@ namespace Treehouse.MediaLibrary
     {
         public static void Main()
         {
-            var album = new album("Go To Prison", "Pears");
+            var album = new Album("Go To Prison", "Pears");
             var movie = new Movie("Monty Python and the Holy Grail", "Terry Jones & Terry Gilliam");
             var book = new Book("Catcher in the Rye", "J.D. Salinger");
 
