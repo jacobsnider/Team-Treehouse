@@ -12,7 +12,7 @@ namespace Treehouse.MediaLibrary
         }
         public string GetDisplayText()
         {
-            string text = Title + "by" + Director;
+            string text = "Movie: " + Title + "by" + Director;
 
             if (OnLoan)
             {
