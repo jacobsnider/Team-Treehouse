@@ -16,6 +16,7 @@ namespace SoccerStats
         public int totalEstimatedMatches { get; set; }
         [JsonProperty(PropertyName = "value")]
         public List<NewsResult> NewsResult { get; set; }
+        public double SentimentScore { get; set; }
     }
 
     public class Instrumentation

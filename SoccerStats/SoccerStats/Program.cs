@@ -158,5 +158,27 @@ namespace SoccerStats
             }
             return results;
         }
+
+        public static SentimentResponse GetSentimentResponse(List<NewsResult> newsResults)
+        {
+            var sentimentResponse = new SentimentResponse();
+            var sentimentRequest = new SentimentRequest();
+            sentimentRequest.Documents = new List<Document>();
+            foreach(var result in newsResults)
+            { 
+                sentimentRequest.Documents.Add(new Document { Id = result.Headline, Text = result.Summary})
+            }
+
+            var webClient = new WebClient();
+            webClient.Headers.Add("Ocp - Apim - Subscription - Key", 123456789ABCDE)
+            webClient.Headers.Add(HttpRequest.Accept, "application/json");
+            webClient.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+            string requestJson = JsonConvert.SerializeObject(sentimentRequest);
+            byte[] requestBytes = Encoding.UTF8.GetBytes(requestJson);
+            byte[] response = webClient.UploadData(string.Format("https://wesuts.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment", requestBytes));
+
+            return sentimentResponse;
+
+        }
     }
 }
