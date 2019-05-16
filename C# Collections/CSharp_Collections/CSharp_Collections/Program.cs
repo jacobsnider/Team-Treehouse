@@ -13,19 +13,16 @@ namespace Treehouse
                 new Student() { Name = "Bob", GradeLevel = 3 },
                 new Student() { Name = "Sally", GradeLevel = 2 }
             };
-            
-            students.Sort();
 
-            students newStudent = new Student() { "Joe", GradeLevel = 2 };
+            SchoolRoll schoolRoll = new SchoolRoll();
+            SchoolRoll.AddStudents(students);
 
-            int index = students.BinarySearch(newStudent);
+            schoolRoll.Students.RemoveAt(0);
+            schoolRoll.Students.Sort();
 
-            if (index < 0)
-            {
-                students.Insert(~index, newStudent);
-            }
-            
-            foreach(Student student in students)
+            schoolRoll.Students.AddRange(students);
+
+            foreach(Student student in schoolRoll.Students)
             {
                 Console.WriteLine($"{student.Name} is in grade {student.GradeLevel}");
             }
