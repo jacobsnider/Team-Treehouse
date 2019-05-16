@@ -15,6 +15,15 @@ namespace Treehouse
             };
             
             students.Sort();
+
+            students newStudent = new Student() { "Joe", GradeLevel = 2 };
+
+            int index = students.BinarySearch(newStudent);
+
+            if (index < 0)
+            {
+                students.Insert(~index, newStudent);
+            }
             
             foreach(Student student in students)
             {
