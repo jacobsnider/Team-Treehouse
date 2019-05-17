@@ -7,22 +7,25 @@ namespace Treehouse
     {
         static void Main()
         {
-            List<Student> students = new List<Student>
+            HashSet<Student> students = new HashSet<Student>
             {
                 new Student() { Name = "Sally", GradeLevel = 3 },
                 new Student() { Name = "Bob", GradeLevel = 3 },
                 new Student() { Name = "Sally", GradeLevel = 2 }
             };
 
-            SchoolRoll schoolRoll = new SchoolRoll();
-            SchoolRoll.AddStudents(students);
+            Student joe = new Student() { Name = "Joe", GradeLevel = 2 };
 
-            schoolRoll.Students.RemoveAt(0);
-            schoolRoll.Students.Sort();
+            students.Add(joe);
 
-            schoolRoll.Students.AddRange(students);
+            Student duplicateJoe = new Student() { Name = "Joe", GradeLevel = 2 };
+            students.Add(duplicateJoe);
 
-            foreach(Student student in schoolRoll.Students)
+            Console.WriteLine(joe.GetHashCode());
+            Console.WriteLine(duplicateJoe.GetHashCode());
+
+
+            foreach (Student student in students)
             {
                 Console.WriteLine($"{student.Name} is in grade {student.GradeLevel}");
             }
