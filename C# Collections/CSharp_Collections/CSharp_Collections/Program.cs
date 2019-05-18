@@ -20,7 +20,7 @@ namespace Treehouse
 
             Student duplicateJoe = new Student() { Name = "Joe", GradeLevel = 2 };
             students.Add(duplicateJoe);
-
+           
             Console.WriteLine(joe.GetHashCode());
             Console.WriteLine(duplicateJoe.GetHashCode());
 
