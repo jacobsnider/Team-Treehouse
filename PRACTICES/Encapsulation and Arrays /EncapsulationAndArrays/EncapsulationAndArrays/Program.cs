@@ -61,8 +61,38 @@ namespace Treehouse.MediaLibrary
             }            
         }
 
+        static void Display(MediaType item) 
+        {
+            if (item == null)
+            {
+                return;
+            }
+
+            if (item is Album)
+            {
+                Console.WriteLine(item.Title + " is an album!");
+            }
+            else if (item is Book)
+            {
+                Console.WriteLine(item.Title + " is a book!");
+            }
+            else if (item is Movie)
+            {
+                Console.WriteLine(item.Title + " is a movie!");
+            }
+            else
+            {
+                throw new Exception("Unexpected media subtype encountered.");
+            }
+        }
+
         static void DetectMediaType(MediaType item)
         {
+            if (item == null)
+            {
+                return;
+            }
+
             if (item is Album)
             {
                 Console.WriteLine(((Album)item).GetDisplayText());
@@ -76,26 +106,6 @@ namespace Treehouse.MediaLibrary
             {
                 Console.WriteLine(((Movie)item).GetDisplayText());
 
-            }
-            else
-            {
-                throw new Exception("Unexpected media subtype encountered.");
-            }
-        }
-
-        static void Display(MediaType item) 
-        {
-            if (item is Album)
-            {
-                Console.WriteLine(item.Title + " is an album!");
-            }
-            else if (item is Book)
-            {
-                Console.WriteLine(item.Title + " is a book!");
-            }
-            else if (item is Movie)
-            {
-                Console.WriteLine(item.Title + " is a movie!");
             }
             else
             {
